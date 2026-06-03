@@ -1,13 +1,13 @@
+import { getState } from "../state/appState.js";
+import { getCharacterById } from "../engine/characters.js";
+import { renderChatUI } from "../ui/renderChat.js";
+import { setupChatEvents } from "../controllers/chatController.js";
+
 export function renderChat() {
   const app = document.querySelector("#app");
+  const state = getState();
+  const character = getCharacterById(state.activeCharacterId);
 
-  app.innerHTML = `
-    <section class="page">
-      <p class="eyebrow">Chat</p>
-      <h1>Conversacion</h1>
-      <p class="lead">
-        Aca construiremos el chat local antes de conectarlo con Gemini.
-      </p>
-    </section>
-  `;
+  app.innerHTML = renderChatUI(state, character);
+  setupChatEvents();
 }
