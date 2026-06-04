@@ -1,3 +1,27 @@
+:root {
+  --page-bg: #f3f4f6;
+  --surface-bg: #ffffff;
+  --soft-bg: #f9fafb;
+  --text-main: #111827;
+  --text-muted: #4b5563;
+  --border-color: #e5e7eb;
+  --primary-bg: #111827;
+  --primary-text: #ffffff;
+  --danger-text: #b91c1c;
+}
+
+[data-theme="dark"] {
+  --page-bg: #111827;
+  --surface-bg: #1f2937;
+  --soft-bg: #374151;
+  --text-main: #f9fafb;
+  --text-muted: #d1d5db;
+  --border-color: #374151;
+  --primary-bg: #f9fafb;
+  --primary-text: #111827;
+  --danger-text: #fca5a5;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -10,8 +34,8 @@ body {
   min-height: 100vh;
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background: #f3f4f6;
-  color: #111827;
+  background: var(--page-bg);
+  color: var(--text-main);
 }
 
 a {
@@ -23,8 +47,8 @@ a {
   flex-direction: column;
   gap: 1rem;
   padding: 1rem;
-  background: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
+  background: var(--surface-bg);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .brand {
@@ -42,14 +66,25 @@ a {
   flex: 0 0 auto;
   padding: 0.5rem 0.75rem;
   border-radius: 0.5rem;
-  color: #374151;
+  color: var(--text-muted);
   text-decoration: none;
-  background: #f9fafb;
+  background: var(--soft-bg);
 }
 
 .nav a.active {
-  background: #111827;
-  color: #ffffff;
+  background: var(--primary-bg);
+  color: var(--primary-text);
+}
+
+.theme-toggle {
+  min-height: 44px;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  background: var(--soft-bg);
+  color: var(--text-main);
+  font-weight: 700;
+  cursor: pointer;
 }
 
 .app {
@@ -94,7 +129,7 @@ h2 {
 
 .lead {
   margin: 0;
-  color: #4b5563;
+  color: var(--text-muted);
   line-height: 1.6;
 }
 
@@ -111,20 +146,20 @@ h2 {
   justify-content: center;
   padding: 0.75rem 1rem;
   border-radius: 0.5rem;
-  border: 1px solid #111827;
+  border: 1px solid var(--primary-bg);
   font-weight: 700;
   text-decoration: none;
   cursor: pointer;
 }
 
 .button--primary {
-  background: #111827;
-  color: #ffffff;
+  background: var(--primary-bg);
+  color: var(--primary-text);
 }
 
 .button--secondary {
-  background: #ffffff;
-  color: #111827;
+  background: var(--surface-bg);
+  color: var(--text-main);
 }
 
 /* Chat */
@@ -134,9 +169,9 @@ h2 {
   min-height: 28rem;
   flex-direction: column;
   overflow: hidden;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--border-color);
   border-radius: 0.75rem;
-  background: #ffffff;
+  background: var(--surface-bg);
 }
 
 .messages {
@@ -150,7 +185,7 @@ h2 {
   margin-bottom: 0.75rem;
   padding: 0.75rem;
   border-radius: 0.75rem;
-  background: #f3f4f6;
+  background: var(--soft-bg);
 }
 
 .message p {
@@ -160,8 +195,8 @@ h2 {
 
 .message--user {
   margin-left: auto;
-  background: #111827;
-  color: #ffffff;
+  background: var(--primary-bg);
+  color: var(--primary-text);
 }
 
 .message--model {
@@ -182,20 +217,22 @@ h2 {
   flex-direction: column;
   gap: 0.75rem;
   padding: 1rem;
-  border-top: 1px solid #e5e7eb;
+  border-top: 1px solid var(--border-color);
 }
 
 .chat-input {
   min-height: 44px;
   min-width: 0;
   padding: 0.75rem;
-  border: 1px solid #d1d5db;
+  border: 1px solid var(--border-color);
   border-radius: 0.5rem;
+  background: var(--surface-bg);
+  color: var(--text-main);
 }
 
 .chat-error {
   margin: 0 1rem;
-  color: #b91c1c;
+  color: var(--danger-text);
 }
 
 /* Personajes */
