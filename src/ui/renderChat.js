@@ -1,3 +1,5 @@
+import { createInitialMockMessage } from "../engine/mockReplies.js";
+
 export function renderChatUI(state, character) {
   const messagesHtml = state.messages.map(renderMessage).join("");
   const loadingHtml = state.status === "loading" ? renderTypingIndicator(character) : "";
@@ -63,7 +65,7 @@ function renderMessage(message) {
 function renderEmptyState(character) {
   return `
     <article class="message message--model">
-      <p>${character.greeting}</p>
+      <p>${createInitialMockMessage(character)}</p>
     </article>
   `;
 }

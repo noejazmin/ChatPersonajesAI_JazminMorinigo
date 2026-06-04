@@ -10,6 +10,7 @@ import {
     clearStoredHistory,
     saveHistory,
 } from "../storage/localStorage.js";
+import { createMockReply } from "../engine/mockReplies.js";
 
 export function setupChatEvents() {
     const form = document.querySelector("[data-chat-form]");
@@ -39,7 +40,7 @@ function handleSubmit(event) {
     const withUserMessage = appendUserMessage(state.messages, message);
     const withCharacterMessage = appendCharacterMessage(
         withUserMessage,
-        createLocalCharacterReply(character, message)
+        createMockReply(character, message, withUserMessage)
     );
     
     setState({
@@ -68,9 +69,6 @@ function handleClearChat() {
     renderChat();
 }
 
-function createLocalCharacterReply(character, message) {
-    return `${character.name}: Te escuche decir "${message}". Todavia no estoy conectado a Gemini, pero ya estoy calentando el pantano.`;
-}
 
 function scrollMessagesToBottom() {
     const messages = document.querySelector("[data-messages]");
