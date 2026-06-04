@@ -1,7 +1,8 @@
 import { characters } from "../engine/characters.js";
-import { getState, setState } from "../state/appState.js";
+import { getState, setActiveCharacter } from "../state/appState.js";
 import { renderCharactersList } from "../ui/renderCharacters.js";
 import { navigateTo } from "../router.js";
+import { saveActiveCharacterId } from "../storage/localStorage.js";
 
 export function renderCharacters() {
   const app = document.querySelector("#app");
@@ -27,14 +28,10 @@ function setupCharacterSelection() {
 
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
-      const characterId = button.dataset.characterId;
+        const characterId = button.dataset.characterId;
 
-      setState({
-        activeCharacterId: characterId,
-        messages: [],
-        status: "idle",
-        error: null,
-      });
+        setActiveCharacter(characterId);
+        saveActiveCharacterId(characterId);
 
       navigateTo("/chat");
     });

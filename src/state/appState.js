@@ -1,10 +1,16 @@
 import { getDefaultCharacter } from "../engine/characters.js";
+import {
+  loadActiveCharacterId,
+  loadHistory,
+} from "../storage/localStorage.js";
+
+const initialCharacterId = loadActiveCharacterId() || getDefaultCharacter().id;
 
 const state = {
   status: "idle",
   error: null,
-  activeCharacterId: getDefaultCharacter().id,
-  messages: [],
+  activeCharacterId: initialCharacterId,
+  messages: loadHistory(initialCharacterId),
 };
 
 export function getState() {
@@ -16,6 +22,13 @@ export function getState() {
 
 export function setState(updates) {
   Object.assign(state, updates);
+}
+
+export function setActiveCharacter(characterId) {
+  state.activeCharacterId = characterId;
+  state.messages = loadHistory(characterId);
+  state.status = "idle";
+  state.error = null;
 }
 
 export function resetChatState() {

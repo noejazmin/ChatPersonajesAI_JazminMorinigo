@@ -6,6 +6,10 @@ import {
 } from "../engine/history.js";
 import { getCharacterById } from "../engine/characters.js";
 import { renderChat } from "../views/chat.js";
+import {
+  clearStoredHistory,
+  saveHistory,
+} from "../storage/localStorage.js";
 
 export function setupChatEvents() {
   const form = document.querySelector("[data-chat-form]");
@@ -44,13 +48,18 @@ function handleSubmit(event) {
     messages: withCharacterMessage,
   });
 
+    saveHistory(character.id, withCharacterMessage);
+
   form.reset();
   renderChat();
   scrollMessagesToBottom();
 }
 
 function handleClearChat() {
+  const state = getState();
+
   resetChatState();
+  clearStoredHistory(state.activeCharacterId);
 
   setState({
     messages: clearHistory(),
