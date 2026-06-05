@@ -513,12 +513,12 @@ h2 {
     position: fixed;
     left: 0;
     width: 100%;
-    min-height: 4.75rem;
+    min-height: 5.5rem;
   }
 
   .app {
-    height: calc(100vh - 4.75rem);
-    margin-top: 4.75rem;
+    height: calc(100vh - 5.5rem);
+    margin-top: 5.5rem;
     overflow: hidden;
   }
 
@@ -535,5 +535,27 @@ h2 {
 
   h1 {
     font-size: 4rem;
+  }
+
+    .page {
+    height: 100%;
+    gap: 0.75rem;
+    overflow: hidden;
+  }
+
+  .page h1 {
+    font-size: 3.25rem;
+  }
+
+  .character-grid {
+    gap: 1rem;
+  }
+
+  .character-card {
+    min-height: 0;
+  }
+
+  .character-media {
+    height: 13rem;
   }
 }
