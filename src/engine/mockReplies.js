@@ -1,21 +1,21 @@
 const introReplies = {
   shrek: {
     first:
-      "Shrek: Bueno... ya que entraste a mi pantano, al menos decime con quien estoy hablando.",
+      "Bueno... ya que entraste a mi pantano, al menos decime con quien estoy hablando.",
     second:
-      "Shrek: Ajá. Bien, ya tenes nombre. Ahora decime, ¿viniste a pedir un consejo, a quejarte de la vida o a molestarme en paz?",
+      "Ajá. Bien, ya tenes nombre. Ahora decime, ¿viniste a pedir un consejo, a quejarte de la vida o a molestarme en paz?",
   },
   tyrion: {
     first:
-      "Tyrion Lannister: Antes de hablar de imperios, deuda o malas decisiones humanas, decime quien sos.",
+      "Antes de hablar de imperios, deuda o malas decisiones humanas, decime quien sos.",
     second:
-      "Tyrion Lannister: Interesante presentacion. Ahora elegi: ¿queres hablar de historia economica, poder, crisis, dinero o de como la gente arruina todo con sorprendente regularidad?",
+      "Interesante presentacion. Ahora elegi: ¿queres hablar de historia economica, poder, crisis, dinero o de como la gente arruina todo con sorprendente regularidad?",
   },
   tommy: {
     first:
-      "Tommy Shelby: Antes de seguir, necesito saber con quien estoy hablando.",
+      "Antes de seguir, necesito saber con quien estoy hablando.",
     second:
-      "Tommy Shelby: Bien. Ahora decime que buscas: consejo, estrategia, una respuesta honesta o una razon para no confiar en nadie.",
+      "Bien. Ahora decime que buscas: consejo, estrategia, una respuesta honesta o una razon para no confiar en nadie.",
   },
 };
 
@@ -54,5 +54,5 @@ export function createMockReply(character, message, history) {
 
   const index = message.length % replies.length;
 
-  return `${character.name}: ${replies[index]}`;
+  return replies[index];
 }
