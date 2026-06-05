@@ -15,6 +15,7 @@ import { sendMessageToAI } from "../services/chatApi.js";
 export function setupChatEvents() {
     const form = document.querySelector("[data-chat-form]");
     const clearButton = document.querySelector("[data-clear-chat]");
+    const copyButtons = document.querySelectorAll("[data-copy-message]");
 
     if (!form) return;
 
@@ -23,6 +24,10 @@ export function setupChatEvents() {
     if (clearButton) {
     clearButton.addEventListener("click", handleClearChat);
     }
+
+    copyButtons.forEach((button) => {
+        button.addEventListener("click", handleCopyMessage);
+    });
 }
 
 async function handleSubmit(event) {
@@ -87,6 +92,56 @@ function handleClearChat() {
     renderChat();
 }
 
+async function handleCopyMessage(event) {
+  const button = event.currentTarget;
+  const index = Number(button.dataset.copyMessage);
+  const state = getState();
+  const message = state.messages[index];
+
+  if (!message) return;
+
+  const copied = await copyText(message.content);
+
+  if (!copied) return;
+
+  button.classList.add("copy-message--copied");
+  button.setAttribute("aria-label", "Respuesta copiada");
+
+  setTimeout(() => {
+    button.classList.remove("copy-message--copied");
+    button.setAttribute("aria-label", "Copiar respuesta");
+  }, 1600);
+}
+
+async function copyText(text) {
+  if (navigator.clipboard && window.isSecureContext) {
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch {
+      return fallbackCopyText(text);
+    }
+  }
+
+  return fallbackCopyText(text);
+}
+
+function fallbackCopyText(text) {
+  const textarea = document.createElement("textarea");
+
+  textarea.value = text;
+  textarea.setAttribute("readonly", "");
+  textarea.style.position = "fixed";
+  textarea.style.top = "-9999px";
+
+  document.body.appendChild(textarea);
+  textarea.select();
+
+  const copied = document.execCommand("copy");
+  textarea.remove();
+
+  return copied;
+}
 
 function scrollMessagesToBottom() {
     const messages = document.querySelector("[data-messages]");
