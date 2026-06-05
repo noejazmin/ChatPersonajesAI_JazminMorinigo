@@ -1,45 +1,69 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chat Personajes AI</title>
-  <link rel="stylesheet" href="./styles.css" />
-</head>
-<body>
-  <header class="site-header">
-    <a class="brand" href="/home">
-      Chat Personajes AI
-    </a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat Personajes AI</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/home"> Chat Personajes AI </a>
 
-    <nav class="nav" aria-label="Navegación principal">
-      <a href="/home">Home</a>
-      <a href="/characters">Personajes</a>
-      <a href="/chat">Chat</a>
-      <a href="/about">About</a>
-    </nav>
+      <nav class="nav" aria-label="Navegación principal">
+        <a href="/home">Home</a>
+        <a href="/characters">Personajes</a>
+        <a href="/chat">Chat</a>
+        <a href="/about">About</a>
+      </nav>
 
-    <button class="theme-toggle" type="button" data-theme-toggle>
-      Modo oscuro
-    </button>
-  </header>
+      <button
+        class="theme-toggle"
+        type="button"
+        data-theme-toggle
+        aria-label="Activar modo oscuro"
+        title="Cambiar tema"
+      >
+        <span class="theme-icon theme-icon--moon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false">
+            <path d="M21 14.5A8.5 8.5 0 0 1 9.5 3 7 7 0 1 0 21 14.5z"></path>
+          </svg>
+        </span>
 
-  <main id="app" class="app">
-    <section class="home">
-      <p class="eyebrow">Proyecto Integrador M3</p>
-      <h1>Chateá con personajes ficticios usando IA</h1>
-      <p class="lead">
-        Elegí un personaje, iniciá una conversación y disfrutá una experiencia
-        interactiva con respuestas generadas por inteligencia artificial.
-      </p>
+        <span class="theme-icon theme-icon--sun" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2"></path>
+            <path d="M12 20v2"></path>
+            <path d="m4.93 4.93 1.41 1.41"></path>
+            <path d="m17.66 17.66 1.41 1.41"></path>
+            <path d="M2 12h2"></path>
+            <path d="M20 12h2"></path>
+            <path d="m6.34 17.66-1.41 1.41"></path>
+            <path d="m19.07 4.93-1.41 1.41"></path>
+          </svg>
+        </span>
+      </button>
+    </header>
 
-      <div class="actions">
-        <a class="button button--primary" href="/characters">Elegir personaje</a>
-        <a class="button button--secondary" href="/chat">Ir al chat</a>
-      </div>
-    </section>
-  </main>
+    <main id="app" class="app">
+      <section class="home">
+        <p class="eyebrow">Proyecto Integrador M3</p>
+        <h1>Chateá con personajes ficticios usando IA</h1>
+        <p class="lead">
+          Elegí un personaje, iniciá una conversación y disfrutá una experiencia
+          interactiva con respuestas generadas por inteligencia artificial.
+        </p>
 
-  <script type="module" src="./src/main.js"></script>
-</body>
+        <div class="actions">
+          <a class="button button--primary" href="/characters"
+            >Elegir personaje</a
+          >
+          <a class="button button--secondary" href="/chat">Ir al chat</a>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
 </html>

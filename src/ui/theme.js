@@ -31,5 +31,8 @@ function updateThemeButton(theme) {
 
   if (!button) return;
 
-  button.textContent = theme === "dark" ? "Modo claro" : "Modo oscuro";
+  const label = theme === "dark" ? "Activar modo claro" : "Activar modo oscuro";
+
+  button.setAttribute("aria-label", label);
+  button.setAttribute("title", label);
 }
