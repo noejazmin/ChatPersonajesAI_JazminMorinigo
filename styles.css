@@ -159,8 +159,49 @@ a {
 }
 
 .home {
+  position: relative;
   min-height: calc(100vh - 8rem);
   justify-content: center;
+  overflow: hidden;
+  padding: 2rem;
+  border-radius: 1.25rem;
+  background:
+    radial-gradient(circle at 12% 20%, rgba(132, 204, 22, 0.42), transparent 30%),
+    radial-gradient(circle at 88% 18%, rgba(220, 38, 38, 0.28), transparent 28%),
+    radial-gradient(circle at 72% 82%, rgba(59, 130, 246, 0.32), transparent 34%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.82), rgba(248, 250, 252, 0.62));
+  box-shadow: 0 1.5rem 3rem rgba(17, 24, 39, 0.12);
+}
+
+.home::before {
+  content: "";
+  position: absolute;
+  inset: auto -8rem -10rem auto;
+  width: 24rem;
+  height: 24rem;
+  border-radius: 50%;
+  background:
+    conic-gradient(
+      from 140deg,
+      rgba(132, 204, 22, 0.45),
+      rgba(220, 38, 38, 0.35),
+      rgba(59, 130, 246, 0.4),
+      rgba(132, 204, 22, 0.45)
+    );
+  opacity: 0.8;
+}
+
+.home > * {
+  position: relative;
+  z-index: 1;
+}
+
+[data-theme="dark"] .home {
+  background:
+    radial-gradient(circle at 12% 20%, rgba(132, 204, 22, 0.18), transparent 30%),
+    radial-gradient(circle at 88% 18%, rgba(220, 38, 38, 0.16), transparent 28%),
+    radial-gradient(circle at 72% 82%, rgba(59, 130, 246, 0.18), transparent 34%),
+    linear-gradient(135deg, rgba(31, 41, 55, 0.92), rgba(17, 24, 39, 0.84));
 }
 
 .eyebrow {
