@@ -10,7 +10,6 @@ export function renderCharacters() {
 
   app.innerHTML = `
     <section class="page">
-      <p class="eyebrow">Personajes</p>
       <h1>Elegi con quien queres hablar</h1>
       <p class="lead">
         Cada personaje tiene su propio tono, personalidad y estilo de respuesta.
