@@ -34,7 +34,25 @@ body {
   min-height: 100vh;
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background: var(--page-bg);
+  background:
+    linear-gradient(135deg, rgba(77, 124, 15, 0.12), transparent 28%),
+    linear-gradient(225deg, rgba(127, 29, 29, 0.1), transparent 32%),
+    linear-gradient(315deg, rgba(30, 41, 59, 0.1), transparent 34%),
+    repeating-linear-gradient(
+      90deg,
+      rgba(17, 24, 39, 0.035) 0,
+      rgba(17, 24, 39, 0.035) 1px,
+      transparent 1px,
+      transparent 72px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(17, 24, 39, 0.025) 0,
+      rgba(17, 24, 39, 0.025) 1px,
+      transparent 1px,
+      transparent 72px
+    ),
+    var(--page-bg);
   color: var(--text-main);
 }
 
@@ -134,6 +152,11 @@ a {
   opacity: 1;
   transform: scale(1) rotate(0);
 }
+
+[data-theme="dark"] body {
+  background: var(--page-bg);
+}
+
 .app {
   width: 100%;
   max-width: 72rem;
