@@ -54,11 +54,12 @@ a {
   flex-direction: column;
   gap: 1rem;
   padding: 1rem;
-  background: var(--surface-bg);
-  border-bottom: 1px solid var(--border-color);
+  background: #0f3d46;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
 }
 
 .brand {
+  color: #f8fafc;
   font-weight: 700;
   text-decoration: none;
 }
@@ -73,14 +74,14 @@ a {
   flex: 0 0 auto;
   padding: 0.5rem 0.75rem;
   border-radius: 0.5rem;
-  color: var(--text-muted);
+  color: #dbeafe;
   text-decoration: none;
-  background: var(--soft-bg);
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .nav a.active {
-  background: var(--primary-bg);
-  color: var(--primary-text);
+  background: #e5e7eb;
+  color: #0f172a;
 }
 
 .theme-toggle {
@@ -92,10 +93,10 @@ a {
   align-items: center;
   justify-content: center;
   padding: 0;
-  border: 1px solid var(--border-color);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 50%;
-  background: var(--soft-bg);
-  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.12);
+  color: #f8fafc;
   cursor: pointer;
 }
 
@@ -194,6 +195,18 @@ a {
 .home > * {
   position: relative;
   z-index: 1;
+}
+
+.home .button--primary {
+  background: #0f3d46;
+  border-color: #0f3d46;
+  color: #ffffff;
+}
+
+.home .button--secondary {
+  background: rgba(15, 61, 70, 0.08);
+  border-color: #0f3d46;
+  color: #0f3d46;
 }
 
 [data-theme="dark"] .home {
@@ -635,11 +648,13 @@ h2 {
   }
 
   .home {
-    height: 100%;
-    min-height: 0;
-    max-width: 48rem;
-    overflow: hidden;
-  }
+  width: min(100%, 68rem);
+  height: 100%;
+  min-height: 0;
+  max-width: none;
+  margin: 0 auto;
+  overflow: hidden;
+}
 
   .chat-layout {
     height: 100%;
