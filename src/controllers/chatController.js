@@ -10,7 +10,7 @@ import {
     clearStoredHistory,
     saveHistory,
 } from "../storage/localStorage.js";
-import { createMockReply } from "../engine/mockReplies.js";
+import { sendMessageToAI } from "../services/chatApi.js";
 
 export function setupChatEvents() {
     const form = document.querySelector("[data-chat-form]");
@@ -25,35 +25,53 @@ export function setupChatEvents() {
     }
 }
 
-function handleSubmit(event) {
-    event.preventDefault();
+async function handleSubmit(event) {
+  event.preventDefault();
 
-    const form = event.currentTarget;
-    const formData = new FormData(form);
-    const message = String(formData.get("message") || "").trim();
-    
-    if (!message) return;
-    
-    const state = getState();
-    const character = getCharacterById(state.activeCharacterId);
-    
-    const withUserMessage = appendUserMessage(state.messages, message);
+  const form = event.currentTarget;
+  const formData = new FormData(form);
+  const message = String(formData.get("message") || "").trim();
+
+  if (!message) return;
+
+  const state = getState();
+  const character = getCharacterById(state.activeCharacterId);
+  const withUserMessage = appendUserMessage(state.messages, message);
+
+  setState({
+    status: "loading",
+    error: null,
+    messages: withUserMessage,
+  });
+
+  form.reset();
+  renderChat();
+  scrollMessagesToBottom();
+
+  try {
+    const aiResponse = await sendMessageToAI(character, withUserMessage);
     const withCharacterMessage = appendCharacterMessage(
-        withUserMessage,
-        createMockReply(character, message, withUserMessage)
+      withUserMessage,
+      aiResponse.text
     );
-    
+
     setState({
-        status: "idle",
-        error: null,
-        messages: withCharacterMessage,
+      status: "idle",
+      error: null,
+      messages: withCharacterMessage,
     });
-    
-        saveHistory(character.id, withCharacterMessage);
-    
-    form.reset();
-    renderChat();
-    scrollMessagesToBottom();
+
+    saveHistory(character.id, withCharacterMessage);
+  } catch (error) {
+    setState({
+      status: "error",
+      error: "No se pudo obtener respuesta del personaje. Intenta nuevamente.",
+      messages: withUserMessage,
+    });
+  }
+
+  renderChat();
+  scrollMessagesToBottom();
 }
 
 function handleClearChat() {
