@@ -6,7 +6,7 @@ export function renderChatUI(state, character) {
   const errorHtml = state.error ? `<p class="chat-error">${state.error}</p>` : "";
 
   return `
-    <section class="chat-layout">
+    <section class="chat-layout chat-layout--${character.id}">
       <header class="chat-header">
         <div>
           <h1>${character.name}</h1>
