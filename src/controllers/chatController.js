@@ -68,11 +68,11 @@ async function handleSubmit(event) {
 
     saveHistory(character.id, withCharacterMessage);
   } catch (error) {
-    setState({
-      status: "error",
-      error: "No se pudo obtener respuesta del personaje. Intenta nuevamente.",
-      messages: withUserMessage,
-    });
+  setState({
+    status: "error",
+    error: error.message || "No se pudo obtener respuesta del personaje. Intenta nuevamente.",
+    messages: state.messages,
+  });
   }
 
   renderChat();

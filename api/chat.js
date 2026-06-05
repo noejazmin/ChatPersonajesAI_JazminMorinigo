@@ -38,8 +38,15 @@ export default async function handler(req, res) {
     const text = result.response.text().trim();
 
     return res.status(200).json({ text });
-  } catch (error) {
+   } catch (error) {
     console.error("[/api/chat] Error:", error.message);
+
+    if (error.message.includes("429") || error.message.includes("Too Many Requests")) {
+      return res.status(429).json({
+        error: "Se alcanzo el limite temporal de Gemini. Espera unos segundos e intenta nuevamente.",
+      });
+    }
+
     return res.status(500).json({ error: "Error al generar la respuesta" });
   }
 }
