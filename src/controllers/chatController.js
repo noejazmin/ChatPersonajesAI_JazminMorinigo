@@ -77,6 +77,7 @@ async function handleSubmit(event) {
 
   renderChat();
   scrollMessagesToBottom();
+  focusChatInput();
 }
 
 function handleClearChat() {
@@ -149,4 +150,12 @@ function scrollMessagesToBottom() {
     if (messages) {
         messages.scrollTop = messages.scrollHeight;
     }
+}
+
+function focusChatInput() {
+  const input = document.querySelector(".chat-input");
+
+  if (input && !input.disabled) {
+    input.focus();
+  }
 }
