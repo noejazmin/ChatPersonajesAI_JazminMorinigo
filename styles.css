@@ -549,6 +549,8 @@ h2 {
 
   .character-grid {
     gap: 1rem;
+    padding-bottom: 0.5rem;
+    border-radius: 1rem;
   }
 
   .character-card {
