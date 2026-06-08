@@ -460,8 +460,9 @@ h2 {
 
 .chat-form {
   display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
   padding: 1rem;
   border-top: 1px solid var(--border-color);
   background: var(--surface-bg);
@@ -470,11 +471,53 @@ h2 {
 .chat-input {
   min-height: 44px;
   min-width: 0;
+  flex: 1;
   padding: 0.75rem;
   border: 1px solid var(--border-color);
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   background: var(--surface-bg);
   color: var(--text-main);
+}
+
+.chat-icon-button {
+  display: inline-flex;
+  width: 2.75rem;
+  height: 2.75rem;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  background: var(--soft-bg);
+  color: var(--text-main);
+  cursor: pointer;
+}
+
+.chat-icon-button svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.chat-icon-button--send {
+  background: var(--primary-bg);
+  color: var(--primary-text);
+  border-color: var(--primary-bg);
+}
+
+.chat-icon-button--clear {
+  background: var(--surface-bg);
+  color: var(--text-main);
+}
+
+.chat-icon-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
 }
 
 .chat-error {
@@ -626,10 +669,9 @@ h2 {
     padding: 2rem;
   }
 
-  .actions,
-  .chat-form {
-    flex-direction: row;
-  }
+  .actions {
+  flex-direction: row;
+}
 
   .chat-input {
     flex: 1;

@@ -32,12 +32,33 @@ export function renderChatUI(state, character) {
             ${state.status === "loading" ? "disabled" : ""}
           />
 
-          <button class="button button--primary" type="submit" ${state.status === "loading" ? "disabled" : ""}>
-            Enviar
+          <button
+            class="chat-icon-button chat-icon-button--send"
+            type="submit"
+            aria-label="Enviar mensaje"
+            title="Enviar mensaje"
+            ${state.status === "loading" ? "disabled" : ""}
+          >
+            <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+              <path d="M22 2 11 13"></path>
+              <path d="M22 2 15 22 11 13 2 9 22 2z"></path>
+            </svg>
           </button>
 
-          <button class="button button--secondary" type="button" data-clear-chat>
-            Borrar
+          <button
+            class="chat-icon-button chat-icon-button--clear"
+            type="button"
+            data-clear-chat
+            aria-label="Borrar historial"
+            title="Borrar historial"
+          >
+            <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+              <path d="M3 6h18"></path>
+              <path d="M8 6V4h8v2"></path>
+              <path d="M19 6l-1 14H6L5 6"></path>
+              <path d="M10 11v5"></path>
+              <path d="M14 11v5"></path>
+            </svg>
           </button>
         </form>
       </div>
