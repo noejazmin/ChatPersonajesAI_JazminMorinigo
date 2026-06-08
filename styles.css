@@ -75,7 +75,7 @@ a {
   order: 3;
   display: grid;
   width: 100%;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: 0.8fr 1.35fr 0.8fr 0.85fr;
   gap: 0.4rem;
   overflow: visible;
 }
@@ -88,8 +88,10 @@ a {
   text-align: center;
   text-decoration: none;
   background: rgba(255, 255, 255, 0.12);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .nav a.active {
