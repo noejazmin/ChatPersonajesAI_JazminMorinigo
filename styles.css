@@ -46,6 +46,10 @@ body:has(.home) {
   overflow: hidden;
 }
 
+body:has(.chat-layout) {
+  overflow: hidden;
+}
+
 a {
   color: inherit;
 }
