@@ -8,10 +8,7 @@ export function renderChatUI(state, character) {
   return `
     <section class="chat-layout chat-layout--${character.id}">
       <header class="chat-header">
-        <div>
           <h1>${character.name}</h1>
-          <p class="lead">${character.description}</p>
-        </div>
       </header>
 
       <div class="chat-panel">
