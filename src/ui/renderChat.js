@@ -70,24 +70,21 @@ function renderMessage(message, index) {
   const className = message.role === "user" ? "message message--user" : "message message--model";
   const author = message.role === "user" ? "Vos" : "Personaje";
   const time = formatMessageTime(message.timestamp);
-  const copyButton =
-  message.role === "model"
-    ? `
-      <button class="copy-message" type="button" data-copy-message="${index}" aria-label="Copiar respuesta">
-        <span class="copy-icon copy-icon--copy" aria-hidden="true">
-          <svg viewBox="0 0 24 24" focusable="false">
-            <rect x="8" y="8" width="11" height="11" rx="2"></rect>
-            <path d="M5 15V6a2 2 0 0 1 2-2h9"></path>
-          </svg>
-        </span>
-        <span class="copy-icon copy-icon--check" aria-hidden="true">
-          <svg viewBox="0 0 24 24" focusable="false">
-            <path d="M20 6 9 17l-5-5"></path>
-          </svg>
-        </span>
-      </button>
-    `
-    : "";
+  const copyButton = `
+  <button class="copy-message" type="button" data-copy-message="${index}" aria-label="Copiar mensaje">
+    <span class="copy-icon copy-icon--copy" aria-hidden="true">
+      <svg viewBox="0 0 24 24" focusable="false">
+        <rect x="8" y="8" width="11" height="11" rx="2"></rect>
+        <path d="M5 15V6a2 2 0 0 1 2-2h9"></path>
+      </svg>
+    </span>
+    <span class="copy-icon copy-icon--check" aria-hidden="true">
+      <svg viewBox="0 0 24 24" focusable="false">
+        <path d="M20 6 9 17l-5-5"></path>
+      </svg>
+    </span>
+  </button>
+`;
 
   return `
     <article class="${className}">
