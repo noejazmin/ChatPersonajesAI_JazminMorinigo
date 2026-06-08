@@ -11,6 +11,7 @@ import {
     saveHistory,
 } from "../storage/localStorage.js";
 import { sendMessageToAI } from "../services/chatApi.js";
+import { createInitialMockMessage } from "../engine/mockReplies.js";
 
 export function setupChatEvents() {
     const form = document.querySelector("[data-chat-form]");
@@ -41,8 +42,13 @@ async function handleSubmit(event) {
 
   const state = getState();
   const character = getCharacterById(state.activeCharacterId);
-  const withUserMessage = appendUserMessage(state.messages, message);
+  const initialMessages =
+  state.messages.length === 0
+    ? appendCharacterMessage(state.messages, createInitialMockMessage(character))
+    : state.messages;
 
+  const withUserMessage = appendUserMessage(initialMessages, message);
+  
   setState({
     status: "loading",
     error: null,
