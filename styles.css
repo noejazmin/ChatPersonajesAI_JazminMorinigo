@@ -303,7 +303,7 @@ h2 {
 
 .chat-layout {
   display: flex;
-  height: calc(100vh - 13rem);
+  height: calc(100vh - 11.5rem);
   flex-direction: column;
   gap: 0.75rem;
   overflow: hidden;
@@ -311,6 +311,8 @@ h2 {
 
 .chat-header {
   flex: 0 0 auto;
+  padding-top: 0.75rem;
+  text-align: center;
 }
 
 .chat-header h1 {
