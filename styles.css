@@ -252,6 +252,40 @@ a {
   background: rgba(255, 255, 255, 0.08);
 }
 
+.about-page {
+  gap: 1.25rem;
+}
+
+.about-content {
+  display: grid;
+  gap: 1rem;
+  margin: 1.8rem auto 0;
+}
+
+.about-block {
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 1rem;
+  background: #0f3d46;
+  color: #ffffff;
+  box-shadow: 0 1rem 2rem rgba(17, 24, 39, 0.12);
+}
+
+.about-block h2 {
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.about-block p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.6;
+}
+
+[data-theme="dark"] .about-block {
+  background: #0f3d46;
+}
+
 .eyebrow {
   margin: 0;
   color: #2563eb;
@@ -733,6 +767,10 @@ h2 {
   .theme-toggle {
     width: 2.75rem;
     height: 2.75rem;
+  }
+
+  .about-content {
+    grid-template-columns: repeat(2, 1fr);
   }
 
 }
