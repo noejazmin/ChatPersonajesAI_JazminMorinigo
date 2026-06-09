@@ -772,7 +772,7 @@ h2 {
   body:has(.chat-layout) .app {
   height: calc(100dvh - var(--header-height));
   margin-top: 5.5rem;
-  padding: 0.75rem 1rem 0;
+  padding: 0.75rem 1rem 1rem;
   overflow: hidden;
 }
 
@@ -796,6 +796,8 @@ h2 {
     .page {
     height: 100%;
     gap: 0.75rem;
+    padding: 0.75rem 1rem 1rem;
+    border-radius: 0.625rem;
     overflow: hidden;
     background:
       linear-gradient(120deg, rgba(132, 204, 22, 0.12), transparent 32%),
@@ -819,5 +821,24 @@ h2 {
 
   .character-media {
     height: 13rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  body:has(.chat-layout) .app {
+    max-width: 86rem;
+    padding: 1rem 2rem 1.25rem;
+  }
+
+  .chat-header h1 {
+    font-size: 2.5rem;
+  }
+
+  .chat-form {
+    padding: 1rem 1.25rem;
+  }
+
+  .messages {
+    padding: 1.25rem;
   }
 }
