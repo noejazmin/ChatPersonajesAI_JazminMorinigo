@@ -8,7 +8,7 @@
   --primary-bg: #111827;
   --primary-text: #ffffff;
   --danger-text: #b91c1c;
-  --header-height: 11rem;
+  --header-height: 8.75rem;
 }
 
 [data-theme="dark"] {
