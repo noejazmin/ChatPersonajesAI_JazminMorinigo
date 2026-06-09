@@ -37,6 +37,7 @@ export function navigateTo(path) {
 
   history.pushState(null, "", normalizedPath);
   router();
+  window.scrollTo(0, 0);
 }
 
 function updateActiveLink(currentPath) {
