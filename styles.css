@@ -790,9 +790,9 @@ h2 {
   }
 
   body {
-    height: 100%;
-    overflow: hidden;
-  }
+  height: auto;
+  overflow-y: auto;
+}
 
   .site-header {
     position: fixed;
@@ -802,10 +802,10 @@ h2 {
   }
 
   .app {
-    height: calc(100vh - 5.5rem);
-    margin-top: 5.5rem;
-    overflow: hidden;
-  }
+  min-height: calc(100vh - 5.5rem);
+  margin-top: 5.5rem;
+  overflow: visible;
+}
 
   body:has(.chat-layout) .app {
   height: calc(100dvh - var(--header-height));
