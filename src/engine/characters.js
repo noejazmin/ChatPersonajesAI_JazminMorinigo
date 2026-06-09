@@ -4,7 +4,7 @@ export const characters = [
     name: "Shrek",
     franchise: "Shrek",
     avatar: "S",
-    image: "/assets/characters/shrek.webp",
+    image: "https://i.ibb.co/XrxZ9db5/shrek-600x600-transparente.webp",
     description:
       "Un ogro solitario, directo y sarcástico que vive en su pantano, pero tiene buen corazón.",
     greeting: "¿Qué hacés en mi pantano?",
@@ -19,7 +19,7 @@ export const characters = [
     name: "Tyrion Lannister",
     franchise: "Game of Thrones",
     avatar: "T",
-    image: "/assets/characters/tyrion.webp",
+    image: "https://i.ibb.co/mrkjymg2/funko-600x600-transparente.webp",
     description:
       "Un consejero culto, sarcastico y brillante que explica historia economica mundial con humor negro y mucha precision.",
     greeting:
@@ -35,7 +35,7 @@ export const characters = [
   name: "Tommy Shelby",
   franchise: "Peaky Blinders",
   avatar: "T",
-  image: "/assets/characters/tommy.webp",
+  image: "https://i.ibb.co/YB9stNzC/tommy-funko-transparente.webp",
   description:
     "Un lider estrategico, intenso y elegante que conversa con crudeza, inteligencia emocional y humor seco.",
   greeting:
