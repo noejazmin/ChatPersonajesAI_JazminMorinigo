@@ -190,7 +190,6 @@ a {
 .home {
   position: relative;
   min-height: calc(100vh - 7rem);
-  min-height: 0;
   justify-content: center;
   overflow: hidden;
   padding: 2rem;
@@ -816,8 +815,7 @@ h2 {
 
   .home {
   width: min(100%, 68rem);
-  height: 100%;
-  min-height: 0;
+  min-height: calc(100dvh - 9rem);
   max-width: none;
   margin: 0 auto;
   overflow: hidden;
@@ -834,9 +832,9 @@ h2 {
     .page {
     height: 100%;
     gap: 0.75rem;
-    padding: 0.75rem 1rem 1rem;
+    padding: 1.5rem 1rem 1rem;
     border-radius: 0.625rem;
-    overflow: hidden;
+    overflow: visible;
     background:
       linear-gradient(120deg, rgba(132, 204, 22, 0.12), transparent 32%),
       linear-gradient(240deg, rgba(127, 29, 29, 0.12), transparent 36%),
