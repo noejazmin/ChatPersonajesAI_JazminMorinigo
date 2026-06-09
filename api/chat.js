@@ -31,14 +31,20 @@ export default async function handler(req, res) {
     }
 
     const chat = model.startChat({
-      history: messages.slice(0, -1),
-    });
+  history: messages.slice(0, -1),
+  generationConfig: {
+    maxOutputTokens: 300,
+    temperature: 0.8,
+  },
+});
 
     const result = await chat.sendMessage(lastMessage.parts);
     const text = result.response.text().trim();
+    const finishReason = result.response.candidates?.[0]?.finishReason;
+    const finalText = finishReason === "MAX_TOKENS" ? `${text}...` : text;
 
-    return res.status(200).json({ text });
-   } catch (error) {
+    return res.status(200).json({ text: finalText });
+    } catch (error) {
     console.error("[/api/chat] Error:", error.message);
 
     if (error.message.includes("429") || error.message.includes("Too Many Requests")) {

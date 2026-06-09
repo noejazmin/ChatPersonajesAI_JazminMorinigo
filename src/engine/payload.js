@@ -1,3 +1,5 @@
+import { sanitizeMessages } from "./validation.js";
+
 export function createSystemPrompt(character) {
   return `
 Sos ${character.name}, de ${character.franchise}.
@@ -22,11 +24,11 @@ Reglas de respuesta:
 }
 
 export function toGeminiHistory(messages) {
-  return messages.map((message) => ({
+  return sanitizeMessages(messages).map((message) => ({
     role: message.role,
     parts: [
       {
-        text: message.content,
+        text: message.content.trim(),
       },
     ],
   }));

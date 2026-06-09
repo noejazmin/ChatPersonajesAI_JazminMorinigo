@@ -12,6 +12,10 @@ import {
 } from "../storage/localStorage.js";
 import { sendMessageToAI } from "../services/chatApi.js";
 import { createInitialMockMessage } from "../engine/mockReplies.js";
+import {
+  getMessageValidationError,
+  isValidMessage,
+} from "../engine/validation.js";
 
 export function setupChatEvents() {
     const form = document.querySelector("[data-chat-form]");
@@ -38,7 +42,16 @@ async function handleSubmit(event) {
   const formData = new FormData(form);
   const message = String(formData.get("message") || "").trim();
 
-  if (!message) return;
+if (!isValidMessage(message)) {
+  setState({
+    status: "error",
+    error: getMessageValidationError(message),
+  });
+
+  renderChat();
+  focusChatInput();
+  return;
+}
 
   const state = getState();
   const character = getCharacterById(state.activeCharacterId);
