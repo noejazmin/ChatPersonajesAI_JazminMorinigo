@@ -54,6 +54,7 @@ body:has(.chat-layout) {
 
 body:has(.chat-layout) .app {
   height: calc(100dvh - var(--header-height, 0px));
+  padding-bottom: 0;
   overflow: hidden;
 }
 
